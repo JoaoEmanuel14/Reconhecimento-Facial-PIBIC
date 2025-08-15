@@ -49,7 +49,8 @@ drive.mount('/content/drive')
 - **Autor**: João Emanuel Mendonça Apóstolo
 - Este projeto foi desenvolvido como parte do Programa Institucional de Bolsas de Iniciação Científica (PIBIC), sendo este remunerado por uma bolsa CNPq, na Universidade Federal de Sergipe, sob orientação do Prof. Dr. Rafael Oliveira Vasconcelos.
 
-# Facial Recognition in Security Cameras Applied to Smart Cities and Public Safety
+
+# Facial Recognition in Security Cameras Applied to Smart Cities and Public Safety (English)
 
 # Project Overview
 
