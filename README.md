@@ -1,4 +1,4 @@
-# Reconhecimento Facial em Câmeras de Segurança aplicado em Cidades Inteligentes e Segurança Pública
+# Reconhecimento Facial em Câmeras de Segurança aplicado em Cidades Inteligentes e Segurança Pública (Português)
 
 # Visão Geral do Projeto
 
@@ -8,12 +8,12 @@ Neste contexto, o repositório retrata a arquitetura construída para treino e a
 
 O sistema final utiliza uma Rede Adversarial Generativa (GAN), o *CodeFormer*, para realizar a super-resolução e restauração de faces de baixa qualidade antes de submetê-las ao modelo de reconhecimento. O modelo de reconhecimento, por sua vez, é baseado na arquitetura *InceptionResnetV1* (*FaceNet*) e foi fine-tuned com a função de perda *ArcFace* para maximizar a discriminação dos vetores de característricas (*embeddings*) faciais.
 
-O projeto demonstra empiricamente que esta abordagem aumenta a acurácia de identificação em aproximadamente 131% em comparação com um pipeline otimizado sem a etapa de restauração.
+O projeto demonstra empiricamente que esta abordagem aumenta a acurácia de identificação em aproximadamente **131%** em comparação com um pipeline otimizado sem a etapa de restauração.
 
 > [!IMPORTANT]
 > Por limitações do *GitHub*, alguns *widgets* tiveram de ser retirados. Porém, para visualização completa do Notebook, com o código completo e os resultados.
 >
-> O código-fonte completo está disponível no [Google Colab](https://colab.research.google.com/drive/1mMKZNDrlOwcIngK8Lm1e-cr-dIak2ZnF?usp=sharing).
+> O código-fonte completo está disponível no [*Google Colab*](https://colab.research.google.com/drive/1mMKZNDrlOwcIngK8Lm1e-cr-dIak2ZnF?usp=sharing).
 
 # Estrutura do modelo
 
@@ -34,7 +34,7 @@ O modelo é composto por um *pipeline* que realiza a detecção facial, extraç�
 
 1. Baixe o *dataset* [*Scface*](https://www.kaggle.com/datasets/yazkarajih/scface) no *Google Drive*
 
-2. **Monte o Google Drive no Colab**:
+2. Monte o Google Drive no Colab:
 ```python
 from google.colab import drive
 drive.mount('/content/drive')
@@ -48,3 +48,54 @@ drive.mount('/content/drive')
 
 - **Autor**: João Emanuel Mendonça Apóstolo
 - Este projeto foi desenvolvido como parte do Programa Institucional de Bolsas de Iniciação Científica (PIBIC), sendo este remunerado por uma bolsa CNPq, na Universidade Federal de Sergipe, sob orientação do Prof. Dr. Rafael Oliveira Vasconcelos.
+
+# Facial Recognition in Security Cameras Applied to Smart Cities and Public Safety
+
+# Project Overview
+
+This repository contains the code and results of a scientific initiation project whose main goal is to develop, train, and evaluate robust and efficient algorithms for facial identification in realistic scenarios, using representative datasets and standardized metrics, contributing to public safety and crime prevention in smart cities. 
+
+In this context, the repository presents the architecture built for training and evaluation, based on the SCface dataset (Grgic; Delac; Grgic, 2009).
+
+The final system uses a Generative Adversarial Network (GAN), CodeFormer, to perform super-resolution and restoration of low-quality faces before submitting them to the recognition model. The recognition model, in turn, is based on the InceptionResnetV1 (FaceNet) architecture and was fine-tuned with the ArcFace loss function to maximize the discrimination of facial feature vectors (embeddings).
+
+The project empirically demonstrates that this approach increases identification accuracy by approximately **131%** compared to an optimized pipeline without the restoration step.
+
+> [!IMPORTANT]
+> Due to GitHub limitations, some widgets had to be removed. However, for full notebook visualization with complete code and results:
+>
+> The full source code is available on [Google Colab](https://colab.research.google.com/drive/1mMKZNDrlOwcIngK8Lm1e-cr-dIak2ZnF?usp=sharing).
+
+# Model Structure
+
+The model consists of a pipeline that performs face detection, feature extraction, and facial identification. Each of these stages uses specific technologies and methods, as outlined below:
+
+- MTCNN (Zhang et al., 2016)
+  - Also responsible for image preprocessing, ensuring that individuals’ faces are aligned and centered.
+    
+- FaceNet (Schroff; Kalenichenko; Philbin, 2015) and ArcFace (Deng et al., 2021)
+  - Responsible for transforming faces into embeddings (feature vectors).
+ 
+- Embedding Comparison
+
+> [!IMPORTANT]
+> CodeFormer is part of the pipeline. Its role is to enhance the test image before the model attempts recognition.
+
+## How to Run
+
+1. Download [Scface dataset](https://www.kaggle.com/datasets/yazkarajih/scface) on your Google Drive
+
+2. Mount Google Drive in Colab:
+```python
+from google.colab import drive
+drive.mount('/content/drive')
+```
+
+3. Ensure the SCface dataset `.zip` file is saved in Google Drive and that the paths are correct.
+
+4. Run the *pipeline*
+
+# Author and Acknowledgments
+
+- **Author**: João Emanuel Mendonça Apóstolo
+- This project was developed as part of the Programa Institucional de Bolsas de Iniciação Científica (PIBIC), funded by a CNPq scholarship, at the Federal University of Sergipe, under the supervision of Prof. Dr. Rafael Oliveira Vasconcelos.
