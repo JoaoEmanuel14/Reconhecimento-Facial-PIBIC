@@ -31,11 +31,11 @@ Os modelos são compostos por um *pipeline* que realiza a detecção facial, ext
  
 - Comparação de *embeddings*
 
+> [!NOTE]
+> Foi estabelecido que a etapa de identificação do rosto seria desconsiderada para a arquitetura do *QMUL-SurvFace*.
+
 > [!IMPORTANT]
 > O *CodeFormer* faz parte do *pipeline* da arquitetura voltada para o *SCface*. Sua função é melhorar a imagem de teste antes que o modelo tente reconhecê-la.
-
-> > [!IMPORTANT]
-> Ffoi estabelecido que a etapa de identificação do rosto seria desconsiderada para a arquitetura do *QMUL-SurvFace*.
 
 ## Como Executar
 
@@ -53,8 +53,8 @@ drive.mount('/content/drive')
 
 # Autor e Agradecimentos
 
-- **Autor**: João Emanuel Mendonça Apóstolo (joao.apostolo@dcomp.ufs.br)
-- Este projeto foi desenvolvido como parte do Programa Institucional de Bolsas de Iniciação Científica (PIBIC), sendo este remunerado por uma bolsa CNPq, na Universidade Federal de Sergipe, sob orientação do Prof. Dr. Rafael Oliveira Vasconcelos.
+- **Autor**: João Emanuel Mendonça Apóstolo (joao.apostolo@dcomp.ufs.br).
+- Este projeto foi desenvolvido como parte do Programa Institucional de Bolsas de Iniciação Científica (PIBIC), sendo este remunerado por uma bolsa CNPq, na Universidade Federal de Sergipe, sob orientação do Prof. Dr. Rafael Oliveira Vasconcelos (rafael@dcomp.ufs.br).
 
 
 # Facial Recognition in Security Cameras Applied to Smart Cities and Public Safety (English)
@@ -105,5 +105,5 @@ drive.mount('/content/drive')
 
 # Author and Acknowledgments
 
-- **Author**: João Emanuel Mendonça Apóstolo (joao.apostolo@dcomp.ufs.br)
-- This project was developed as part of the Programa Institucional de Bolsas de Iniciação Científica (PIBIC), funded by a CNPq scholarship, at the Federal University of Sergipe, under the supervision of Prof. Dr. Rafael Oliveira Vasconcelos.
+- **Author**: João Emanuel Mendonça Apóstolo (joao.apostolo@dcomp.ufs.br).
+- This project was developed as part of the Programa Institucional de Bolsas de Iniciação Científica (PIBIC), funded by a CNPq scholarship, at the Federal University of Sergipe, under the supervision of Prof. Dr. Rafael Oliveira Vasconcelos (rafael@dcomp.ufs.br).
