@@ -2,22 +2,26 @@
 
 # Visão Geral do Projeto
 
-Este repositório contém o código e os resultados de um projeto de iniciação científica que possui como principal objetivo desenvolver, treinar e avaliar algoritmos robustos e eficientes para identificação facial em cenários realistas, utilizando bases de dados representativas e métricas padronizadas, contribuindo para a segurança pública e prevenção de crimes nas cidades inteligentes. 
+Este repositório contém os códigos e resultados de um projeto de iniciação científica que possui como principal objetivo desenvolver, treinar e avaliar algoritmos robustos e eficientes para identificação facial em cenários realistas, utilizando bases de dados representativas e métricas padronizadas, contribuindo para a segurança pública e prevenção de crimes nas cidades inteligentes. 
 
-Neste contexto, o repositório retrata a arquitetura construída para treino e avaliação tendo como base o *dataset* *SCface* (Grgic; Delac; Grgic, 2009). 
+Neste contexto, o repositório retrata as arquiteturas construídas para treino e avaliação tendo como base os *datasets* *SCface* (Grgic; Delac; Grgic, 2009) e QMUL-SurvFace (Cheng; Zhu; Gong, 2018). 
 
-O sistema final utiliza uma Rede Adversarial Generativa (GAN), o *CodeFormer*, para realizar a super-resolução e restauração de faces de baixa qualidade antes de submetê-las ao modelo de reconhecimento. O modelo de reconhecimento, por sua vez, é baseado na arquitetura *InceptionResnetV1* (*FaceNet*) e foi fine-tuned com a função de perda *ArcFace* para maximizar a discriminação dos vetores de característricas (*embeddings*) faciais.
+O sistema final, que possui as melhores métricas, utiliza uma Rede Adversarial Generativa (GAN), o *CodeFormer*, para realizar a super-resolução e restauração de faces de baixa qualidade antes de submetê-las ao modelo de reconhecimento. O modelo de reconhecimento, por sua vez, é baseado na arquitetura *InceptionResnetV1* (*FaceNet*) e foi fine-tuned com a função de perda *ArcFace* para maximizar a discriminação dos vetores de característricas (*embeddings*) faciais.
 
 O projeto demonstra empiricamente que esta abordagem aumenta a acurácia de identificação em aproximadamente **131%** em comparação com um pipeline otimizado sem a etapa de restauração.
+
+> [!NOTE]
+> Os arquivos ".pth" de cada uma das redes neurais está disponível no [*Google Drive*](https://drive.google.com/drive/folders/1WisWVGKdmpVIb90wThpv8gj8dMPViKw9?usp=sharing)
 
 > [!IMPORTANT]
 > Por limitações do *GitHub*, alguns *widgets* tiveram de ser retirados. Porém, para visualização completa do Notebook, com o código completo e os resultados.
 >
-> O código-fonte completo está disponível no [*Google Colab*](https://colab.research.google.com/drive/1mMKZNDrlOwcIngK8Lm1e-cr-dIak2ZnF?usp=sharing).
+> O código-fonte completo do modelo utilizado no *SCface* está disponível no [*Google Colab*](https://colab.research.google.com/drive/1mMKZNDrlOwcIngK8Lm1e-cr-dIak2ZnF?usp=sharing).
+> O código-fonte completo do modelo utilizado no *QMUL-SurvFace* está disponível no [*Google Colab*](https://colab.research.google.com/drive/15YkwYVnydM8La_1anMMMaMY6IvmCKDyZ?usp=sharing).
 
 # Estrutura do modelo
 
-O modelo é composto por um *pipeline* que realiza a detecção facial, extração de características e identificação facial. Cada uma dessas etapas através de tecnologias e métodos que estão, respectivamente, representados abaixo:
+Os modelos são compostos por um *pipeline* que realiza a detecção facial, extração de características e identificação facial. Cada uma dessas etapas através de tecnologias e métodos que estão, respectivamente, representados abaixo:
 
 - MTCNN (Zhang et al., 2016)
   - Também é responsável pelo pré-processamento das imagens, garantindo que os rostos dos indivíduos estejam alinhados e centralizados.
@@ -28,11 +32,14 @@ O modelo é composto por um *pipeline* que realiza a detecção facial, extraç�
 - Comparação de *embeddings*
 
 > [!IMPORTANT]
-> O *CodeFormer* faz parte do *pipeline*. Sua função é melhorar a imagem de teste antes que o modelo tente reconhecê-la.
+> O *CodeFormer* faz parte do *pipeline* da arquitetura voltada para o *SCface*. Sua função é melhorar a imagem de teste antes que o modelo tente reconhecê-la.
+
+> > [!IMPORTANT]
+> Ffoi estabelecido que a etapa de identificação do rosto seria desconsiderada para a arquitetura do *QMUL-SurvFace*.
 
 ## Como Executar
 
-1. Baixe o *dataset* [*Scface*](https://www.kaggle.com/datasets/yazkarajih/scface) no *Google Drive*
+1. Baixe o *dataset* [*Scface*](https://www.kaggle.com/datasets/yazkarajih/scface) ou [*QMUL-SurvFace*](https://qmul-survface.github.io) no *Google Drive*
 
 2. Monte o Google Drive no Colab:
 ```python
@@ -40,13 +47,13 @@ from google.colab import drive
 drive.mount('/content/drive')
 ```
 
-3. Garanta que o `.zip` do *dataset* *SCface* esteja salvo no *Google Drive* e que os caminhos estejam corretos
+3. Garanta que o `.zip` do *dataset* *SCface* ou do *QMUL-SurvFace* esteja salvo no *Google Drive* e que os caminhos estejam corretos
 
 4. Execute o *pipeline*
 
 # Autor e Agradecimentos
 
-- **Autor**: João Emanuel Mendonça Apóstolo
+- **Autor**: João Emanuel Mendonça Apóstolo (joao.apostolo@dcomp.ufs.br)
 - Este projeto foi desenvolvido como parte do Programa Institucional de Bolsas de Iniciação Científica (PIBIC), sendo este remunerado por uma bolsa CNPq, na Universidade Federal de Sergipe, sob orientação do Prof. Dr. Rafael Oliveira Vasconcelos.
 
 
@@ -98,5 +105,5 @@ drive.mount('/content/drive')
 
 # Author and Acknowledgments
 
-- **Author**: João Emanuel Mendonça Apóstolo
+- **Author**: João Emanuel Mendonça Apóstolo (joao.apostolo@dcomp.ufs.br)
 - This project was developed as part of the Programa Institucional de Bolsas de Iniciação Científica (PIBIC), funded by a CNPq scholarship, at the Federal University of Sergipe, under the supervision of Prof. Dr. Rafael Oliveira Vasconcelos.
